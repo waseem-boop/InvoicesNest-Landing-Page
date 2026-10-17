@@ -1,0 +1,20 @@
+@layer theme, base, reference, components, utilities;
+@import "tailwindcss";
+@import "../styles/tokens.css" layer(reference);
+@import "../styles/base.css" layer(reference);
+@import "../styles/layout.css" layer(reference);
+@import "../styles/sections.css" layer(reference);
+@import "../styles/responsive.css" layer(reference);
+@import "lenis/dist/lenis.css";
+@import "../styles/reference-surface-fixes.css";
+@import "../styles/reference-light.css";
+
+@theme inline {
+  --color-primary: #5754d7;
+  --color-primary-hover: #4643bf;
+  --color-muted: #747487;
+  --color-border: #e9e8f1;
+  --font-inter: var(--font-inter-tight), Arial, sans-serif;
+  --font-outfit: Satoshi, Arial, sans-serif;
+}
+@import "../styles/landing-refinements.css";

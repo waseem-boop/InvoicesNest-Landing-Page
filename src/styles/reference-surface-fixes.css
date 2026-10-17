@@ -1,0 +1,31 @@
+/* Light equivalents of hard-coded dark template surfaces; transforms and animation rules are unchanged. */
+.avelety-site .rt-footer-bog-text-overlay {
+  background-image: linear-gradient(0deg, #eee8fbfa 10%, #05071a00);
+}
+.avelety-site .rt-button-linear {
+  background-image: linear-gradient(90deg, #f0ebfc -3%, #f1ecfc40 33%, #fcf3f382 63%, #f0ebfc);
+}
+.avelety-site .rt-sub-text-wrapper {
+  background-color: #f1ecfc;
+}
+.avelety-site .rt-feature-card {
+  background-image: linear-gradient(146deg, #f0ebfc 19%, #eee8fb);
+}
+.avelety-site .rt-benefits-v1 {
+  background-image: radial-gradient(circle at 50% 60%, #efe9fb, #0d173b00 46%);
+}
+.avelety-site .rt-mega-menu-wrap.rt-overflow-hidden.rt-position-relative {
+  background-image:
+    linear-gradient(9deg, #4b6fb1b8, #fff0 66%), linear-gradient(325deg, #f1edfc 10%, #f0ebfc);
+}
+.avelety-site .rt-section-background-overlay {
+  background-color: #eee8fb66;
+}
+.avelety-site .rt-dropdown-inner.rt-dropdown-list-main {
+  background-image: linear-gradient(159deg, #f0ebfc 45%, #f1edfc);
+}
+@media screen and (max-width: 991px) {
+  .avelety-site .rt-navar-main {
+    background-color: #eee8fb;
+  }
+}

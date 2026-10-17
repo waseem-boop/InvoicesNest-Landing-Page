@@ -1,0 +1,941 @@
+/* Targeted refinements. Layout direction and section order stay in the reference components. */
+.avelety-site {
+  --nest-section-space: 64px;
+}
+.avelety-site main > section:not(.rt-hero-v1),
+.avelety-site .nest-resources > section {
+  padding-block: var(--nest-section-space);
+}
+.avelety-site main > .rt-hero-v1 {
+  padding-bottom: var(--nest-section-space);
+}
+/* Labels are black; focus changes the existing border, rather than adding another. */
+.nest-builder-surface input[aria-label*="label"],
+.nest-builder-surface label,
+.nest-builder-surface th {
+  color: #000 !important;
+}
+.nest-builder-surface input:focus,
+.nest-builder-surface textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #a095d0 !important;
+}
+.nest-builder-surface input[aria-label*="label"]:focus {
+  border-color: #d5cde6 !important;
+  color: #000 !important;
+}
+/* A single clipped highlight travels around each badge edge. */
+.avelety-site .rt-sub-text-main {
+  position: relative;
+  isolation: isolate;
+  border-radius: 999px;
+  overflow: hidden;
+  padding: 1px;
+  background: #e5deef;
+  width: fit-content;
+}
+.avelety-site .rt-sub-text-main .rt-gradient-box {
+  display: none !important;
+}
+.avelety-site .rt-sub-text-main::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 300deg,
+    #9b88d4 340deg,
+    transparent 360deg
+  );
+  animation: nest-badge-edge 5s linear infinite;
+}
+.avelety-site .rt-sub-text-wrapper {
+  position: relative;
+  border: 0 !important;
+  border-radius: 999px;
+  background: #f7f4fd !important;
+}
+@keyframes nest-badge-edge {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Replace the raster shadow only, keeping the three illustrations and their motion. */
+.avelety-site .rt-partner-v1 {
+  background-image: none;
+}
+.avelety-site .rt-partner-v1-image-wrap {
+  background: #faf8fd;
+  border: 1px solid #ede7f5;
+}
+.avelety-site .rt-partner-v1-client-image {
+  box-shadow: 0 12px 30px -15px #65527c35;
+}
+.avelety-site .rt-partner-v1-main-image {
+  background: #f0eafa;
+}
+.avelety-site .rt-partner-v1-bar-image {
+  background: #f5f1fc;
+  padding: 14px;
+  box-shadow: 0 12px 28px -15px #65527c40;
+  border: 1px solid #e7e0f0;
+}
+/* Existing four-card grid: icon, heading, description. */
+.avelety-site .rt-feature-card {
+  justify-content: flex-start;
+  gap: 18px;
+  padding: 28px;
+}
+.avelety-site .rt-feature-card-heading-wrap {
+  gap: 18px;
+}
+.avelety-site .rt-feature-card-icon-wrap svg {
+  width: 48px;
+  height: 48px;
+}
+.avelety-site .rt-feature-card-paragraph {
+  padding-top: 0;
+}
+.avelety-site .rt-feature-card-paragraph-wrap-v1 {
+  margin-top: 0;
+}
+/* Refine the SVG motion without changing the five-card layout. */
+.nest-art-float {
+  animation-duration: 8s;
+}
+@keyframes nest-art-float {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+.nest-art-progress {
+  animation-duration: 7s;
+}
+.nest-workspace-row {
+  animation: nest-row-emphasis 6s ease infinite;
+}
+@keyframes nest-row-emphasis {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+.avelety-site .rt-ai-support-icon {
+  color: #756393;
+  background: #f0eafa;
+  border-radius: 12px;
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avelety-site .rt-feature-chat-wrap[data-support-message] {
+  min-height: 56px;
+}
+.avelety-site .rt-feature-chat-single-message {
+  flex: 0 1 auto;
+}
+/* Keep footer columns and their original alignment, reducing link spacing only. */
+.avelety-site .rt-footer-contact-block.rt-footer-v1-two {
+  gap: 12px;
+}
+.avelety-site .rt-footer-contact-block {
+  gap: 16px;
+}
+.avelety-site .rt-footer-link {
+  padding-block: 0;
+  line-height: 1.5;
+}
+@media (max-width: 767px) {
+  .avelety-site {
+    --nest-section-space: 40px;
+  }
+  .avelety-site .rt-feature-card {
+    padding: 25px;
+    gap: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avelety-site .rt-sub-text-main::before,
+  .nest-workspace-row {
+    animation: none;
+  }
+}
+
+/* Keep the guide's two-column structure: each step draws its rule and rises into focus on scroll. */
+.nest-guide-item {
+  position: relative;
+  overflow: hidden;
+  border-top-color: #eee9f6;
+  --guide-progress: 1;
+}
+.nest-guide-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: #a391cc;
+  transform: scaleX(var(--guide-progress));
+  transform-origin: left;
+}
+.nest-guide-item > span {
+  transform-origin: left center;
+}
+/* Same country layout, with quieter surfaces and clearer country markers. */
+.nest-country-links {
+  gap: 14px;
+}
+.nest-country-links a {
+  background: #fff;
+  border-color: #e6dfef;
+  padding: 19px 18px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px #68528b04;
+}
+.nest-country-links a:hover {
+  border-color: #b5a8d4;
+  background: #fcfaff;
+  box-shadow: 0 8px 20px #68528b0b;
+  transform: translateY(-2px);
+}
+.nest-country-code {
+  font-size: 23px;
+  background: transparent;
+  padding: 0;
+  width: 30px;
+  text-align: center;
+}
+/* Identical FAQ typography and rows; animate height in both directions. */
+.nest-faq-refined {
+  border-bottom: 1px solid #e9e4f1;
+}
+.nest-faq-refined:first-child {
+  border-top: 1px solid #e9e4f1;
+}
+.nest-faq-refined > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  cursor: pointer;
+  padding: 24px 0;
+  font:
+    500 17px/1.5 var(--font-inter-tight),
+    Arial,
+    sans-serif;
+  color: #383045;
+  border: 0;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.nest-faq-refined > button svg {
+  flex-shrink: 0;
+  color: #82739f;
+  transition: transform 0.35s;
+}
+.nest-faq-refined.is-open > button {
+  color: #5754d7;
+}
+.nest-faq-refined.is-open > button svg {
+  transform: rotate(45deg);
+}
+.nest-faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.3s;
+}
+.nest-faq-body > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.nest-faq-body p {
+  font-size: 15px;
+  margin: 0 24px 25px 0;
+}
+.nest-faq-refined.is-open .nest-faq-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.nest-faq-refined > button:focus-visible {
+  outline: 2px solid #b7a8da;
+  outline-offset: 3px;
+  border-radius: 5px;
+}
+@media (max-width: 767px) {
+  .nest-country-links a {
+    padding: 16px 12px;
+    gap: 9px;
+  }
+  .nest-country-code {
+    font-size: 20px;
+    width: 25px;
+  }
+  .nest-faq-refined > button {
+    font-size: 16px;
+    padding: 22px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nest-faq-body,
+  .nest-faq-refined > button svg {
+    transition: none;
+  }
+}
+
+/* Retain the existing light chat card and bubbles. */
+.avelety-site .rt-feature-chat-wrapper {
+  background: #fff;
+  border: 1px solid #e3dcf1;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px -20px #5754d733;
+  padding: 2rem 1.5rem;
+}
+.avelety-site .nest-support-message {
+  display: block;
+  padding: 10px 13px;
+  background: #f3effc;
+  color: #403650;
+  font:
+    13px/1.5 Arial,
+    sans-serif;
+  max-width: 210px;
+  border: 1px solid #e7dff4;
+  border-radius: 12px;
+}
+.avelety-site .change-direction .nest-support-message {
+  background: #ebe8ff;
+}
+.avelety-site .rt-feature-hero-ctat-tab {
+  color: #71677e;
+  gap: 14px;
+}
+.avelety-site .feature-massage-text {
+  color: #655974;
+}
+.avelety-site .feature-two-massage-input {
+  background: #f7f4fc;
+  border: 1px solid #e3dcf1;
+  border-radius: 14px;
+  color: #655974;
+}
+.avelety-site .massage-type-text {
+  color: #71677e;
+}
+@media (max-width: 767px) {
+  .avelety-site .rt-feature-chat-wrapper {
+    padding: 24px 16px;
+  }
+  .avelety-site .rt-feature-hero-ctat-tab {
+    font-size: 12px;
+    gap: 10px;
+  }
+}
+
+.nest-builder-surface div.uppercase,
+.nest-builder-surface span.uppercase {
+  color: #000;
+}
+
+/* The send control is part of the illustrative chat, with a clean code-drawn icon. */
+.avelety-site .feature-two-massage-input {
+  padding: 8px 8px 8px 16px;
+  gap: 12px;
+  min-height: 50px;
+}
+.avelety-site .nest-support-send {
+  background: #6557c4;
+  background-image: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+.avelety-site .nest-support-send svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* Softer invoice typography, scoped to the live editor only. */
+.nest-builder-surface,
+.nest-builder-surface input,
+.nest-builder-surface textarea,
+.nest-builder-surface button {
+  font-family: Satoshi, var(--font-inter-tight), Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+.nest-builder-surface .font-black {
+  font-weight: 500 !important;
+}
+.nest-builder-surface .font-bold {
+  font-weight: 500 !important;
+}
+.nest-builder-surface .font-semibold {
+  font-weight: 500 !important;
+}
+.nest-builder-surface input[aria-label="Edit invoiceTitle label"] {
+  font-size: clamp(32px, 4vw, 54px) !important;
+  letter-spacing: -0.04em;
+  font-weight: 500 !important;
+}
+.nest-builder-surface input[aria-label*="label"] {
+  letter-spacing: 0.04em !important;
+}
+/* Preserve the darker item header and restore its contrasting labels. */
+.nest-builder-surface thead th,
+.nest-builder-surface thead input,
+.nest-builder-surface thead input[aria-label*="label"],
+.nest-builder-surface thead input:focus {
+  color: #fff !important;
+}
+.nest-builder-surface thead tr {
+  background: #293246;
+}
+.avelety-site .nest-support-logo {
+  width: 41px;
+  height: 41px;
+  flex: none;
+  object-fit: contain;
+}
+.nest-ticket-closed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #668275;
+  font-size: 12px;
+  padding: 8px 0;
+}
+/* Three moving columns remain, with compact cards and a tighter continuous train. */
+.avelety-site .rt-testimonial-v1-card {
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 24px;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+.avelety-site .rt-testimonial-v1-card-paragraph {
+  margin: 0;
+  max-width: none;
+}
+.avelety-site .rt-testimonial-v1-card .rt-text-style-h5 {
+  line-height: 1.3;
+}
+.avelety-site .rt-testimonial-v1-marquee-main {
+  gap: 18px;
+}
+.avelety-site .rt-testimonial-marquee {
+  height: 680px;
+}
+/* Reference-inspired editorial heading and full-width horizontal gallery. */
+.avelety-site .nest-horizontal-guide {
+  background: #fff;
+  overflow: hidden;
+}
+.nest-guide-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.nest-guide-layout::before,
+.nest-guide-layout::after {
+  display: none;
+}
+.nest-guide-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(250px, 0.7fr);
+  align-items: end;
+  gap: 70px;
+  width: 100%;
+}
+.nest-guide-heading h2 {
+  font-size: clamp(40px, 4.8vw, 72px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  margin: 18px 0 0;
+}
+.nest-guide-intro {
+  padding-bottom: 4px;
+}
+.nest-guide-intro p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  color: #746b80;
+  max-width: 330px;
+}
+.nest-guide-intro .nest-resource-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.nest-guide-right {
+  min-width: 0;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black clamp(20px, 4vw, 56px),
+    black calc(100% - clamp(20px, 4vw, 56px)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black clamp(20px, 4vw, 56px),
+    black calc(100% - clamp(20px, 4vw, 56px)),
+    transparent 100%
+  );
+}
+.nest-guide-window {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+}
+.nest-guide-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  position: relative;
+  padding: 2px 0;
+  align-items: stretch;
+}
+.nest-guide-slide {
+  box-sizing: border-box;
+  width: 350px;
+  flex: 0 0 auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+.nest-guide-slide-visual {
+  height: 300px;
+  border-radius: 22px;
+  background: #f1edf9;
+  padding: 22px 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.nest-guide-tone-1 .nest-guide-slide-visual {
+  background: #edf2eb;
+}
+.nest-guide-tone-2 .nest-guide-slide-visual {
+  background: #f7f0e6;
+}
+.nest-guide-slide-number {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #9d90ae;
+  line-height: 1;
+}
+.nest-guide-slide-caption {
+  padding: 20px 2px 0;
+}
+.nest-guide-slide-caption h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  font-weight: 500;
+  color: #383043;
+}
+.nest-guide-slide-caption p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #8a7f95;
+  margin: 0;
+  max-width: 300px;
+}
+.nest-guide-slide:focus-visible {
+  outline: 2px solid #b4a2d6;
+  outline-offset: -3px;
+  border-radius: 22px;
+}
+.avelety-site .nest-horizontal-guide.nest-guide-pinned {
+  height: calc(100svh - 88px);
+  padding-block: 30px;
+}
+.nest-guide-pinned .nest-guide-layout {
+  height: 100%;
+  justify-content: center;
+  gap: 32px;
+}
+.nest-guide-pinned .nest-guide-window {
+  overflow: hidden;
+}
+.nest-guide-pinned .nest-guide-slide-visual {
+  height: clamp(210px, calc(100svh - 490px), 360px);
+}
+/* Small invoice-specific compositions, drawn in HTML/CSS. */
+.nest-detail-preview {
+  width: 235px;
+  max-width: 100%;
+  min-height: 204px;
+  background: #ffffffed;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 22px -16px #44364b36;
+  padding: 16px;
+  transform: rotate(-3deg);
+  color: #60546e;
+}
+.nest-guide-tone-1 .nest-detail-preview {
+  transform: rotate(3deg);
+}
+.nest-guide-tone-2 .nest-detail-preview {
+  transform: rotate(-2deg);
+}
+.nest-detail-preview-top {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: #a99cb5;
+  margin-bottom: 20px;
+}
+.nest-detail-preview-top > span:first-child {
+  width: 5px;
+  height: 5px;
+  background: #c6badb;
+  border-radius: 50%;
+}
+.nest-detail-preview-top > span:last-child {
+  margin-left: auto;
+  width: 18px;
+  height: 2px;
+  background: #ede8f3;
+}
+.nest-detail-business {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 0 0 6px;
+}
+.nest-detail-monogram {
+  width: 32px;
+  height: 32px;
+  background: #eee8f7;
+  color: #ac99c9;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+.nest-detail-circle {
+  border-radius: 50%;
+}
+.nest-detail-business strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.nest-detail-business > span {
+  font-size: 9px;
+  color: #a295ad;
+}
+.nest-detail-business small {
+  font-size: 9px;
+  line-height: 1.7;
+  color: #b1a5bb;
+  margin-top: 4px;
+}
+.nest-detail-reference {
+  padding: 20px 0 10px;
+  text-align: center;
+}
+.nest-detail-reference > small {
+  font-size: 10px;
+  color: #b1a2b9;
+}
+.nest-detail-reference > strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 27px;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+.nest-detail-reference > strong > span {
+  color: #c4b6d3;
+  margin-right: 5px;
+}
+.nest-detail-reference-lines {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 23px;
+}
+.nest-detail-reference-lines i {
+  height: 22px;
+  width: 2px;
+  background: #e4ddea;
+}
+.nest-detail-reference-lines i:nth-child(2n) {
+  width: 5px;
+}
+.nest-detail-reference-lines i:nth-child(3n) {
+  width: 8px;
+}
+.nest-detail-calendar header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  color: #9a8ba9;
+}
+.nest-detail-calendar > div {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 9px;
+  text-align: center;
+  color: #bcafc5;
+}
+.nest-detail-calendar > div > span {
+  padding: 4px 0;
+}
+.nest-detail-calendar .is-date {
+  background: #b3a0cb;
+  color: white;
+  border-radius: 4px;
+}
+.nest-detail-calendar footer {
+  font-size: 8px;
+  text-align: center;
+  margin-top: 14px;
+  color: #b1a3bc;
+}
+.nest-detail-rows > div,
+.nest-detail-calculation > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1edf5;
+  font-size: 10px;
+  color: #a395af;
+}
+.nest-detail-rows strong,
+.nest-detail-calculation b {
+  font-size: 10px;
+  font-weight: 400;
+  color: #80708e;
+}
+.nest-detail-rows-total {
+  border: 0 !important;
+}
+.nest-detail-rows-total strong,
+.nest-detail-calculation strong {
+  font-weight: 500;
+  font-size: 13px;
+  color: #70607f;
+}
+.nest-detail-calculation > div {
+  padding: 10px 0;
+}
+.nest-detail-calculation > div:last-child {
+  border: 0;
+}
+.nest-detail-balance {
+  text-align: center;
+  padding: 12px 0 5px;
+}
+.nest-detail-balance > small {
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: #baa8c5;
+}
+.nest-detail-balance > strong {
+  display: block;
+  font-size: 38px;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  margin: 8px 0;
+}
+.nest-detail-balance > strong > span {
+  font-size: 22px;
+  color: #baa8c5;
+}
+.nest-detail-balance > span {
+  font-size: 9px;
+  color: #b5a6c0;
+}
+.nest-detail-balance > div {
+  margin-top: 20px;
+  font-size: 9px;
+  color: #9cae9a;
+}
+.nest-detail-balance i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b5c7ad;
+  margin-right: 5px;
+}
+.nest-detail-terms {
+  text-align: center;
+}
+.nest-detail-terms > span {
+  font-size: 8px;
+  color: #b3a2bf;
+  letter-spacing: 0.08em;
+}
+.nest-detail-terms > strong {
+  display: block;
+  font-size: 57px;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1.2;
+  margin: 8px 0;
+  color: #a08ab4;
+}
+.nest-detail-terms > strong > small {
+  font-size: 14px;
+  letter-spacing: 0;
+  margin-left: 5px;
+  color: #c0b0ca;
+}
+.nest-detail-terms p {
+  font-size: 9px;
+  line-height: 1.7;
+  margin: 0;
+  color: #b5a7bf;
+}
+.nest-detail-note {
+  text-align: center;
+  padding-bottom: 6px;
+}
+.nest-detail-note > span {
+  font:
+    36px Georgia,
+    serif;
+  line-height: 1;
+  color: #c9b9d7;
+}
+.nest-detail-note p {
+  font:
+    italic 21px/1.2 Georgia,
+    serif;
+  color: #a08ab3;
+  margin: 2px 0 10px;
+}
+.nest-detail-note small {
+  font-size: 9px;
+  color: #b5a5c0;
+  line-height: 1.6;
+}
+.nest-detail-note > div {
+  font:
+    italic 14px Georgia,
+    serif;
+  margin-top: 15px;
+  color: #ad99bf;
+}
+@media (max-width: 991px) {
+  .nest-guide-header {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 35px;
+  }
+  .nest-guide-heading h2 {
+    font-size: 44px;
+  }
+  .nest-guide-intro p {
+    font-size: 14px;
+  }
+  .nest-guide-slide {
+    width: 310px;
+  }
+  .nest-guide-slide-visual {
+    height: 270px;
+  }
+}
+@media (max-width: 767px) {
+  .nest-guide-layout {
+    gap: 25px;
+  }
+  .nest-guide-header {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .nest-guide-heading h2 {
+    font-size: 33px;
+    margin-top: 13px;
+  }
+  .nest-guide-intro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  .nest-guide-intro p {
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 230px;
+  }
+  .nest-guide-intro .nest-resource-link {
+    font-size: 11px;
+    max-width: 95px;
+    margin: 0;
+    flex: none;
+  }
+  .nest-guide-slide {
+    width: 270px;
+  }
+  .nest-guide-slide-visual {
+    height: 260px;
+    padding: 22px;
+  }
+  .nest-guide-slide-caption {
+    padding-top: 14px;
+  }
+  .nest-guide-slide-caption h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .nest-guide-slide-caption p {
+    font-size: 11px;
+  }
+  .avelety-site .nest-horizontal-guide.nest-guide-pinned {
+    height: calc(100svh - 72px);
+    padding-block: 20px;
+  }
+  .nest-guide-pinned .nest-guide-layout {
+    gap: 24px;
+  }
+  .nest-guide-pinned .nest-guide-slide-visual {
+    height: clamp(220px, calc(100svh - 470px), 300px);
+  }
+  .nest-detail-preview {
+    padding: 14px;
+    min-height: 190px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nest-guide-track {
+    transform: none !important;
+  }
+}
